@@ -1,0 +1,41 @@
+.navTab {
+  display: flex;
+  width: 308px;
+  height: 36px;
+  justify-content: space-between;
+}
+
+.navTab__button {
+  height: 100%;
+  width: 96px;
+  background-color: #303030;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  border: none;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.4s linear;
+}
+
+.navTab__button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 767px) {
+  .navTab {
+    width: 258px;
+    height: 26px;
+    justify-content: space-between;
+  }
+  .navTab__button {
+    height: 100%;
+    width: 82px;
+  }
+}

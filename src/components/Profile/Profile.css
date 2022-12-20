@@ -1,0 +1,147 @@
+.profile {
+    height: calc(100vh - 74px);
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.profile__header {
+    margin: 0 auto;
+}
+
+.profile__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 74px 0 123px;
+}
+
+.profile__form {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 300px);
+    color: white;
+}
+
+.profile__inputContainer {
+    border-bottom: 1px solid #424242;
+    width: 410px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__inputContainer:nth-of-type(2) {
+    border-bottom: none;
+}
+
+.profile__inputTitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.2;
+    width: 410px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #424242;
+}
+
+.profile__inputTitle:last-of-type {
+    border-bottom: none;
+}
+
+.profile__input {
+    background-color: #202020;
+    text-align: right;
+    color: white;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    width: calc(100% - 50px);
+    outline: none;
+    height: calc(100% - 2px);
+    border-radius: 8px;
+}
+
+.profile__input:focus {
+    background-color: rgb(27, 27, 27);
+}
+
+.profile__input::placeholder {
+    color: white;
+}
+
+.profile__buttonBox {
+    margin: auto 0 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__link {
+    color: #EE3465;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.4s linear;
+    cursor: pointer;
+}
+
+.profile__link:hover {
+    opacity: 0.5;
+}
+
+.profile__button {
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.2;
+    text-align: center;
+    background-color: #202020;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.4s linear;
+}
+
+.profile__button:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__title {
+        margin: 23vh 0 96px;
+    }
+    .profile__buttonBox {
+        margin-bottom: 26vh;
+    }
+    .profile__inputTitle {
+        height: 32px;
+    }
+}
+
+@media screen and (max-width: 767px) {    
+    .profile__title {
+        margin: 70px 0 80px;
+        text-align: center;
+        width: 320px;
+        padding: 0 14px;
+        box-sizing: border-box;
+    }
+    .profile__buttonBox {
+        margin-bottom: 40px;
+    }
+    .profile__inputTitle {
+        width: 260px;
+        height: 48px;
+    }
+    
+}

@@ -1,0 +1,124 @@
+.aboutProject {
+  width: calc(100% - 80px);
+  height: 608px;
+  display: flex;
+  color: white;
+  flex-direction: column;
+}
+
+.aboutProject__subtitle {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+
+.aboutProject__table {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 26px 40px;
+  margin-top: 70px;
+}
+
+/* 
+.aboutProject__table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px 40px;
+  margin-top: 70px;
+}
+*/
+
+.aboutProject__text {
+  margin: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.aboutProject__timeTable {
+  display: grid;
+  margin-top: 110px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 36px 36px;
+}
+
+.aboutProject__timeTableCell {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #8B8B8B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutProject__timeTableCell:first-of-type {
+  background-color: #3DDC84;
+  color: black;
+}
+
+.aboutProject__timeTableCell:nth-of-type(2) {
+  background-color: #303030;
+  color: white;
+}
+
+.aboutProject__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .aboutProject {
+    width: calc(100% - 100px);
+    height: 585px;
+  }
+  .aboutProject__text {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .aboutProject__timeTable {
+    margin-top: 102px;
+    grid-template-columns: 1fr 3.77fr;
+    grid-template-rows: 36px 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .aboutProject {
+    width: calc(100% - 36px);
+    height: 641px;
+  }
+
+  .aboutProject__table {
+    grid-template-rows: repeat(4, auto);
+    gap: 16px;
+    margin-top: 60px;
+  }
+  .aboutProject__timeTable {
+    margin-top: 60px;
+    grid-template-columns: 1fr 1.84fr;
+    grid-template-rows: 35px 35px;
+  }
+  .aboutProject__timeTableCell {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .aboutProject__subtitle {
+    font-size: 18px;
+  }
+  .aboutProject__subtitle:nth-of-type(3) {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,48 @@
+.header {
+  max-width: 1140px;
+  min-height: 74px;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202020;
+}
+
+@media screen and (max-width: 1279px) {
+  .header {
+    max-width: 708px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    max-width: 292px;
+  }
+}
+
+
+.header__logo{
+  cursor: pointer;
+  transition: opacity 0.4s linear;
+}
+
+.header__logo:hover{
+  opacity: 0.5;
+}
+
+
+/* 
+@media screen and (max-width: 1279px) {
+  .header {
+    max-width: 704px;
+  }
+}
+  
+@media screen and (max-width: 767px) {
+  .header {
+    max-width: 320px;
+    min-height: 56px;
+  }
+}
+
+*/

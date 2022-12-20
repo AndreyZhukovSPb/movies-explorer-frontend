@@ -1,0 +1,99 @@
+.main { 
+  background-color: #202020;
+  width: 1280px;
+}
+
+.main__header {
+  margin: 0 auto 20px;
+}
+  
+.main__aboutMe {
+  margin: 110px auto 0;
+}
+
+.main__aboutProject {
+  margin: 0 auto;
+  padding-top: 110px;
+  box-sizing: border-box;
+}
+
+.main__portfolio {
+  margin: 100px auto 125px;
+  color: white;
+}
+
+.main__promo {
+  margin: 0 auto;
+}
+
+.main__techs {
+  margin: 0 auto;
+  padding: 100px 70px;
+  box-sizing: border-box;
+}
+
+.main__sectionLine {
+  border-bottom: 1px solid #DADADA;
+  height: 23px;
+  width: 100%;
+}
+
+.main__sectionTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+  align-self: flex-start;
+}
+
+
+@media screen and (max-width: 1279px) {
+  .main {
+    max-width: 768px;
+  }
+  .main__aboutProject {
+    padding-top: 90px;
+  }
+  .main__techs {
+    padding: 90px 50px;
+  }
+  .main__aboutMe {
+    margin: 90px auto 0;
+  }
+  .main__portfolio {
+    margin: 90px auto;
+  }
+  
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    max-width: 320px;
+  }
+  .main__header {
+    margin: 0 auto 14px;
+  }
+  .main__aboutProject {
+    padding-top: 70px;
+  }
+  .main__sectionTitle {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .main__techs {
+    padding: 70px 18px;
+  }
+  .main__sectionLine_type_techs {
+    border-bottom: 1px solid #000000;
+    height: 28px;
+  }
+  .main__aboutMe {
+    margin-top: 70px;
+  }
+  .main__portfolio {
+    margin: 70px auto;
+  }
+}
+
