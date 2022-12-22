@@ -9,7 +9,7 @@ const MoviesCard = props => {
   }
   
   return (
-    <div className="moviesCard">
+    <section className="moviesCard">
       <div className="moviesCard__container">
         <div className="moviesCard__infoContainer">
           <h3 className="moviesCard__title">{title}</h3>
@@ -24,7 +24,7 @@ const MoviesCard = props => {
       </div>
       <img src={src} alt={alt} className="moviesCard__image" />
 
-    </div>    
+    </section>    
       
     
     );

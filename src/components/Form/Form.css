@@ -72,6 +72,8 @@
   line-height: 1.2;
   outline: none;
   margin-top: 10px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .form__input:focus {
@@ -83,10 +85,13 @@
 }
 
 .form__actionContainer {
-  margin-top: auto;
-  margin-bottom: 70px;
+  margin-top: 157px;
   display: flex;
   flex-direction: column;
+}
+
+.form__actionContainer_type_reg {
+  margin-top: 69px;
 }
 
 .form__button {
@@ -98,6 +103,8 @@
   cursor: pointer;
   border: none;
   transition: opacity 0.4s linear;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .form__button:hover{
@@ -149,18 +156,12 @@
   .form__logo {
     margin-top: 23vh;
   }
-  .form__actionContainer {
-    margin-bottom: 23vh;
-  }  
 }
 
 @media screen and (max-width: 767px) {
   .form__logo {
     margin-top: 7vh;
   }
-  .form__actionContainer {
-    margin-bottom: 3vh;
-  }  
   .form {
     align-items: center;
     width: 260px;
@@ -171,8 +172,17 @@
     line-height: 1.25;
     color: #8B8B8B;
   }
-  
   .form__title {
     margin: 50px 0 80px;
+  }
+  .form__actionContainer {
+    margin-top: 245px;
+  }
+  .form__actionContainer_type_reg {
+    margin-top: 157px;
+  }
+  .form__button {
+    font-size: 12px;
+    line-height: 1.25;
   }
 }

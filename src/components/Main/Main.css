@@ -32,23 +32,6 @@
   box-sizing: border-box;
 }
 
-.main__sectionLine {
-  border-bottom: 1px solid #DADADA;
-  height: 23px;
-  width: 100%;
-}
-
-.main__sectionTitle {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  margin: 0;
-  align-self: flex-start;
-}
-
-
 @media screen and (max-width: 1279px) {
   .main {
     max-width: 768px;
@@ -65,7 +48,7 @@
   .main__portfolio {
     margin: 90px auto;
   }
-  
+
 }
 
 @media screen and (max-width: 767px) {
@@ -78,22 +61,14 @@
   .main__aboutProject {
     padding-top: 70px;
   }
-  .main__sectionTitle {
-    font-size: 18px;
-    line-height: 1.2;
-  }
-  .main__techs {
-    padding: 70px 18px;
-  }
-  .main__sectionLine_type_techs {
-    border-bottom: 1px solid #000000;
-    height: 28px;
-  }
   .main__aboutMe {
     margin-top: 70px;
   }
   .main__portfolio {
     margin: 70px auto;
+  }
+  .main__techs {
+    padding: 70px 14px;
   }
 }
 

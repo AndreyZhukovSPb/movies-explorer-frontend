@@ -1,13 +1,19 @@
 import React from 'react';  
 import cn from 'classnames';
 import './Techs.css'
+import SectionLine from '../SectionLine/SectionLine';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const Techs = props => {
   const { className } = props;
   return (
     <section className={cn("techs", className)} id="Techs">
-      <h3 className="main__sectionTitle">Технологии</h3>
-      <div className="main__sectionLine main__sectionLine_type_techs"></div>
+      <SectionTitle
+        title = 'Технологии'
+      />
+      <SectionLine
+        isTechs = {true}
+      />  
       <h2 className="techs__subtitle">7 технологий</h2>
       <p className="techs__text">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
       <ul className="techs__table">

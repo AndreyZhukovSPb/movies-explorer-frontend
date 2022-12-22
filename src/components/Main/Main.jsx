@@ -10,12 +10,13 @@ import './Main.css';
 
 
 const Main = props => {
-  const { isLoggedIn, className } = props;
+  const { isLoggedIn, className, onNavMenuClick } = props;
   return (
     <>
       <Header
         isLoggedIn = {isLoggedIn}
         className = "main__header"
+        onNavMenuClick = {onNavMenuClick}
       />
       <main className={cn("main", className)}>   
         <Promo

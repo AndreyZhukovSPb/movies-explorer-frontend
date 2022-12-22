@@ -8,12 +8,12 @@ function handleClick() {
 }
 
   return (
-    <div className="filterCheckbox">
+    <section className="filterCheckbox">
       <label>
         <input type="checkbox" className="filterCheckbox__invisibleCB" onChange={handleClick}/>
         <span className="filterCheckbox__visibleCB"></span>
       </label> 
-    </div>
+    </section>
     
     );
 }

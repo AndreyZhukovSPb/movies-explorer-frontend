@@ -1,13 +1,17 @@
 import React from 'react';
 import cn from 'classnames';  
 import './AboutProject.css';
+import SectionLine from '../SectionLine/SectionLine';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const AboutProject = props => {
   const { className } = props;
   return (
     <section className={cn("aboutProject", className)} id="AboutProject">
-      <h3 className="main__sectionTitle">О проекте</h3>
-      <div className="main__sectionLine"></div>
+      <SectionTitle
+        title = 'О проекте'
+      />
+      <SectionLine/>  
       <div className="aboutProject__table">
         <p className="aboutProject__subtitle">Дипломный проект включал 5 этапов</p>
         <p className="aboutProject__text">Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>

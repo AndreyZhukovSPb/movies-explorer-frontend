@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Profile = props => {
   
-  const { isLoggedIn, currentUser, onProfile, onNavMenuClick } = props;
+  const { isLoggedIn, currentUser, onProfile, onNavMenuClick, onExitProfile } = props;
 
   const [state, setState] = React.useState({
     profileName: '',
@@ -34,7 +34,7 @@ const Profile = props => {
         className = "profile__header"
         onNavMenuClick = {onNavMenuClick}
       />
-      <div className="profile">
+      <section className="profile">
         <h2 className="profile__title">Привет, {currentUser.name}</h2>
         <form id="profileForm" name="profileForm" className="profile__form" onSubmit={handleSubmit}>
           <label className="profile__inputTitle">
@@ -60,11 +60,11 @@ const Profile = props => {
           </label>
           <div className="profile__buttonBox">
             <button type="submit" className="profile__button">Редактировать</button>
-            <Link to={'./'} className="profile__link">Выйти из аккаунта</Link>
+            <Link onClick={onExitProfile} to={'./'} className="profile__link">Выйти из аккаунта</Link>
           </div>
         </form>
       
-      </div>
+      </section>
     </>
   )
 }

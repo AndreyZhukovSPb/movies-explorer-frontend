@@ -7,18 +7,18 @@
   background-color: #202020;
 }
 
-.moviesCardList_type_invisible {
+.moviesCardList_invisible {
   display: none;
 }
 
-.moviesCardList__adder {
+.moviesCardListAdder {
   display: flex;
   justify-content: center;
   margin: 50px 0 80px;
   color: white;
 }
 
-.moviesCardList__adderContainer {
+.moviesCardListAdder__container {
   width: 320px;
   height: 36px;
   background: #2F2F2F;
@@ -33,15 +33,15 @@
   transition: opacity 0.4s linear;
 }
 
-.moviesCardList__adderContainer:hover {
+.moviesCardListAdder__container:hover {
   opacity: 0.5;
 }
 
-.moviesCardList__adderContainer_visible {
+.moviesCardListAdder__container_visible {
   display: flex;
 }
 
-.moviesCardList__adderText {
+.moviesCardListAdder__text {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;

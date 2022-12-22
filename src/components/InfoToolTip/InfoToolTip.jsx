@@ -5,7 +5,7 @@ const InfoTooltip = props => {
   const { message, type, onClose, isOpen} = props;
 
   return (
-    <div className={`infoToolTip ${isOpen ? "infoToolTip_opened" : ''}`} >  
+    <section className={`infoToolTip ${isOpen ? "infoToolTip_opened" : ''}`} >  
       <div className="infoToolTip__container">
         <button 
           aria-label="Close" 
@@ -18,7 +18,7 @@ const InfoTooltip = props => {
         <p className='infoToolTip__text'>{message}</p>
         
       </div>
-    </div>
+    </section>
   )
 
 }

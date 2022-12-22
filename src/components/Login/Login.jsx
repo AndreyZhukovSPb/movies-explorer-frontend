@@ -3,7 +3,7 @@ import './Login.css';
 import Form from '../Form/Form'
 
 
-const Register = props => {
+const Login = props => {
   
   const { onLogin } = props;
 
@@ -21,4 +21,4 @@ const Register = props => {
   )
 }  
 
-export default Register;
+export default Login;

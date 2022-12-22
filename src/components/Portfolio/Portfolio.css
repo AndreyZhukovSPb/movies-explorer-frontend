@@ -17,7 +17,24 @@
   opacity: 0.5;
 }
 
+/* 
 .portfolio__part {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 20px;
+}
+*/
+
+.portfolio__part {
+  display: flex;
+}
+
+.portfolio__link {
+  color: white;
+  text-decoration: none;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 19px;

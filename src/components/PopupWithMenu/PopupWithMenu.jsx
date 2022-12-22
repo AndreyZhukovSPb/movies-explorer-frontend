@@ -7,7 +7,7 @@ const PopupWithMenu = props => {
   const { onClose, isOpen, currentPage } = props;
 
   return (
-    <div className={`popupWithMenu ${isOpen ? "popupWithMenu_opened" : ''}`} >  
+    <section className={`popupWithMenu ${isOpen ? "popupWithMenu_opened" : ''}`} >  
       <div className="popupWithMenu__container">
         <button 
           aria-label="Close" 
@@ -23,7 +23,7 @@ const PopupWithMenu = props => {
           onClose={onClose}
         />
       </div>
-    </div>
+    </section>
   )
 
 }

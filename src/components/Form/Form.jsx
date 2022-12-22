@@ -32,7 +32,7 @@ const Form = props => {
   }
 
   return (
-    <div className="formContainer">
+    <section className="formContainer">
       <form id={name} name={name} className="form" onSubmit={handleSubmit} >
         <Link to={'/'}>
           <img src={headerLogo} className={`form__logo ${isRegForm ? 'form__logo_reg' : ''}`} alt="лого" />
@@ -68,7 +68,7 @@ const Form = props => {
             required
           />
         </label>
-        <div className="form__actionContainer">
+        <div className={`form__actionContainer ${isRegForm ? 'form__actionContainer_type_reg' : ''}`}>
           <button type="submit" className="form__button">{FormButtonText}</button>
           <p className="form__alternative">
             {FormText}
@@ -76,7 +76,7 @@ const Form = props => {
           </p>
         </div>        
       </form>
-    </div>
+    </section>
   )
 }  
 
