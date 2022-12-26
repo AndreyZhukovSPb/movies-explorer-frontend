@@ -1,0 +1,114 @@
+.moviesCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  background-color: #222222;;
+}
+
+.moviesCard__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px auto;
+  max-width: 336px;
+}
+
+.moviesCard__infoContainer {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.moviesCard__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 0 0 9px;
+  overflow: hidden;
+}
+
+.moviesCard__duration {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #8B8B8B;
+  margin: 0;
+}
+
+.moviesCard__likeContainer {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #313131;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moviesCard__likeContainer_type_active {
+  background-color: #3DDC84;
+}
+
+.moviesCard__likeContainer_type_saved {
+  background: #313131;
+}
+
+.moviesCard__likeButton {
+  width: 10px;
+  height: 13px;
+  background-image: url(../../images/like_button.svg);
+  background-size: cover;
+  background-color: #313131;
+  border: none;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.moviesCard__likeButton_type_active {
+  background-image: url(../../images/like_button_active.svg);
+  background-color: #3DDC84;
+  
+}
+
+.moviesCard__likeButton_type_saved {
+  background-image: url(../../images/like_button_saved.svg);
+  background-position: center;
+  width: 10px;
+  height: 10px;
+}
+
+.moviesCard__image {
+  width: 100%;
+  height: 203px;
+  margin: 0;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1279px) {
+  .moviesCard__image {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .moviesCard__container {
+    max-width: 272px;
+  }
+  .moviesCard__infoContainer {
+    width: 242px;
+  }
+  .moviesCard__image {
+    height: 168px;
+  }
+}
+
+
+
+

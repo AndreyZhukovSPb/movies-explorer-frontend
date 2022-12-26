@@ -1,0 +1,70 @@
+.moviesCardList {
+  padding: 70px 0 30px;
+  display: grid;
+  width: 100%;
+  gap: 30px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(364px, 1fr)); 
+  background-color: #202020;
+}
+
+.moviesCardList_invisible {
+  display: none;
+}
+
+.moviesCardListAdder {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 80px;
+  color: white;
+}
+
+.moviesCardListAdder__container {
+  width: 320px;
+  height: 36px;
+  background: #2F2F2F;
+  border-radius: 6px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.4s linear;
+}
+
+.moviesCardListAdder__container:hover {
+  opacity: 0.5;
+}
+
+.moviesCardListAdder__container_visible {
+  display: flex;
+}
+
+.moviesCardListAdder__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .moviesCardList {
+    grid-template-columns: repeat(auto-fill, minmax(339px, 1fr)); 
+    gap: 36px 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .moviesCardList {
+    padding-top: 40px;
+  }
+  .moviesCardList {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 16px;
+  }
+  .moviesCardList__adderContainer {
+    width: 240px;
+  }
+}

@@ -1,0 +1,18 @@
+.sectionTitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+  align-self: flex-start;
+}
+
+
+@media screen and (max-width: 767px) {
+  .sectionTitle {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+

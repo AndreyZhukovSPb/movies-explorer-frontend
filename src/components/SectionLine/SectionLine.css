@@ -1,0 +1,12 @@
+.sectionLine {
+  border-bottom: 1px solid #DADADA;
+  height: 23px;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .sectionLine_type_techs {
+    border-bottom: 1px solid #000000;
+    height: 28px;
+  }
+}

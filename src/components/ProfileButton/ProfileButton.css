@@ -1,0 +1,24 @@
+.profileButtton {
+  border: 2px solid rgba(170, 170, 170, 0.2);
+  border-radius: 50px;
+  background-color: #202020;
+  width: 100px;
+  height: 32px;
+  color: white;
+  font: inherit;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 16px;
+  transition: opacity 0.4s linear;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.profileButtton:hover {
+  opacity: 0.5;
+}
+
+.profileButtton__icon {
+  margin-right: 7px;
+}
