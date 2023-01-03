@@ -74,7 +74,7 @@ class Api {
 
 const MainApi = 
 new Api(  
-  {baseUrl: 'https://api.diploma.zhukov.nomoredomains.club'
+  {baseUrl: 'http://localhost:4000'
   }
 )
 
