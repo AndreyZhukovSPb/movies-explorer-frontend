@@ -29,6 +29,7 @@
   line-height: 1.3;
   margin: 0 0 9px;
   overflow: hidden;
+  height: 18px;
 }
 
 .moviesCard__duration {

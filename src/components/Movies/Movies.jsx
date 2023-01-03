@@ -7,8 +7,9 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 
 
 const Movies = props => {
-  const { isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, movieAdderIsVisible, className, onNavMenuClick } = props;
-  
+          
+  const { cleanErrors, serverError, hideSearchGeneralError, searchGeneralError, isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, className, onNavMenuClick, onCheckBoxClick, isCheked, onScreenSize, itemsToShow, queryToAdd, previousValue } = props;
+
   return (
     <>
       <Header
@@ -19,12 +20,25 @@ const Movies = props => {
       <main className={cn("movies", className)}>
         <SearchForm
           onSubmit = {onSubmit}
+          onCheckBoxClick = {onCheckBoxClick}
+          isCheked = {isCheked}
+          onScreenSize = {onScreenSize}
+          previousValue = {previousValue}
+          isSavedMovies = {false}
+          hideSearchGeneralError= {hideSearchGeneralError}
+          
         />
         <MoviesCardList
           movies = {movies}
           onMovieLikeClick = {onMovieLikeClick}
           onAddClick = {onAddClick}
-          movieAdderIsVisible = {movieAdderIsVisible}
+          onScreenSize = {onScreenSize}
+          itemsToShow={itemsToShow}
+          queryToAdd={queryToAdd}
+          isSavedMovies = {false}
+          searchGeneralError = {searchGeneralError}
+          serverError={serverError}
+          cleanErrors={cleanErrors}
         />
       </main>
     </>

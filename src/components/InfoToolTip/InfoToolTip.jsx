@@ -15,7 +15,7 @@ const InfoTooltip = props => {
         >
         </button>
         <div className={`infoToolTip__sign infoToolTip__sign_type_${type}`} ></div>
-        <p className='infoToolTip__text'>{message}</p>
+        <p className='infoToolTip__text'>{message !== '' ? message : 'Что-то пошло не так, попробуйте еще раз'}</p>
         
       </div>
     </section>

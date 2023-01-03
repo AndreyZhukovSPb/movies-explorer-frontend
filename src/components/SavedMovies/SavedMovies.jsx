@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { useEffect } from 'react';
 import './SavedMovies.css';
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
@@ -7,9 +8,11 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 
 
 const SavedMovies = props => {
-  const { isLoggedIn, onSubmit, favoriteMovies, onMovieLikeClick, movieAdderIsVisible, className, onNavMenuClick } = props;
-  const isSavedMovies = true;
+  const { serverError, showSavedMovies, setLastValue, hideSearchError, itemsToShow, isCheked, delMovie, onCheckBoxClick, getSavedMovies, isLoggedIn, onSubmit, favoriteMovies, onMovieLikeClick, className, onNavMenuClick, searchError } = props;
 
+  useEffect(()=>{
+    getSavedMovies();
+  }, [])
 
   return (
     <>
@@ -21,12 +24,21 @@ const SavedMovies = props => {
       <main className={cn("savedMovies", className)}>
         <SearchForm
           onSubmit = {onSubmit}
+          onCheckBoxClick = {onCheckBoxClick}
+          isSavedMovies = {true}
+          showSavedMovies = {showSavedMovies}
+          isCheked = {isCheked}
+          hideSearchError = {hideSearchError}
+          setLastValue = {setLastValue}
         />
         <MoviesCardList
           movies = {favoriteMovies}
           onMovieLikeClick = {onMovieLikeClick}
-          movieAdderIsVisible = {movieAdderIsVisible}
-          isSavedMovies = {isSavedMovies}
+          isSavedMovies = {true}
+          delMovie = {delMovie}
+          itemsToShow = {itemsToShow}
+          searchError= {searchError}
+          serverError={serverError}
         />
       </main>
     </>

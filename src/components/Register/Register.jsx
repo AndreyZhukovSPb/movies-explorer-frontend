@@ -1,12 +1,11 @@
 import React from 'react';  
 import './Register.css';
 import Form from '../Form/Form'
-import { useHistory, Route, Switch } from 'react-router-dom';
 
 
 const Register = props => {
   
-  const { onRegister } = props;
+  const { onRegister, registerErrorMessage, cleanErrorMessage } = props;
 
   return (
     <Form
@@ -18,6 +17,8 @@ const Register = props => {
       FormLinkPath = {'./sign-in'}
       onSubmit = {onRegister}
       isRegForm = {true}
+      registerErrorMessage = {registerErrorMessage}
+      cleanErrorMessage = {cleanErrorMessage}
     />
   )
 }  

@@ -10,18 +10,52 @@ class Api {
     }
   }
   
-  getHeroData() {
-    return fetch(`${this._baseUrl}/users/me`, {
+  sendMovie (movie, currentUser) {
+    return fetch(`${this._baseUrl}/movies`, {
+        method: 'POST',
+        headers: this._getHeaders(),
+        body: JSON.stringify({
+          country: movie.country,
+          director: movie.director,
+          duration: movie.duration,
+          year: movie.year,
+          description: movie.description,
+          image: movie.image,
+          trailerLink: movie.trailerLink,
+          thumbnail: movie.thumbnail,
+          movieId: movie.movieId,
+          owner: currentUser._id,
+          nameRU: movie.nameRU,
+          nameEN: movie.nameEN,
+        })
+      })
+      .then(this._getJsonOrError)
+  }
+
+  removeMovie(id){
+    return fetch(`${this._baseUrl}/movies/${id}`, {
+      method: 'DELETE',
+      headers: this._getHeaders()
+      })
+    .then(this._getJsonOrError)
+  }
+
+  getMovies() {
+    return fetch(`${this._baseUrl}/movies`, {
       method: 'GET',
       headers: this._getHeaders()
     })
     .then(this._getJsonOrError)
   }
 
-  getnItialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: 'GET',
-      headers: this._getHeaders()
+  setUserInfo (newName, newEmail){
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: this._getHeaders(),
+      body: JSON.stringify({
+        name: newName,
+        email: newEmail
+      })
     })
     .then(this._getJsonOrError)
   }
@@ -33,73 +67,6 @@ class Api {
     return Promise.reject({status: res.status})
   }
 
-  setUserInfoServer (title, job){
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
-      headers: this._getHeaders(),
-      body: JSON.stringify({
-        name: title,
-        about: job
-      })
-    })
-    .then(this._getJsonOrError)
-  }
-
-  setUserAvatarServer(avatarLink){
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: this._getHeaders(),
-      body: JSON.stringify({
-        avatar: avatarLink,
-      })
-    })
-    .then(this._getJsonOrError)
-  }
-
-  sendCard(place, placeLink) {
-    return fetch(`${this._baseUrl}/cards`, {
-        method: 'POST',
-        headers: this._getHeaders(),
-        body: JSON.stringify({
-          name: place,
-          link: placeLink
-        })
-      })
-      .then(this._getJsonOrError)
-  }
-
-  removeCard(id){
-    return fetch(`${this._baseUrl}/cards/${id}`, {
-      method: 'DELETE',
-      headers: this._getHeaders()
-      })
-    .then(this._getJsonOrError)
-  }
-
-  sendLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'PUT',
-      headers: this._getHeaders()
-      })
-    .then(this._getJsonOrError)
-  }
-
-  delLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'DELETE',
-      headers: this._getHeaders()
-      })
-    .then(this._getJsonOrError)
-  }
-
-  changeLikeCardStatus(id, isLikeActive) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: `${!isLikeActive ? "PUT" : "DELETE"}`,
-      headers: this._getHeaders()
-      })
-    .then(this._getJsonOrError)
-  }
-
   setToken(jwt) {
     this._token = `Bearer ${jwt}`;
   }
@@ -107,33 +74,11 @@ class Api {
 
 const MainApi = 
 new Api(  
-  {baseUrl: 'http://localhost:4000'  
+  {baseUrl: 'https://api.diploma.zhukov.nomoredomains.club'
   }
 )
 
 export default MainApi;
 
 // https://api.diploma.zhukov.nomoredomains.club
-
-
-const MoviesApi = 
-new Api(
-  {baseUrl: 'https://api.nomoreparties.co/beatfilm-movies'
-  }
-)
-
-
-
-// export default api;
-
-// https://api.nomoreparties.co/beatfilm-movies
-// 
-
-
-
-
-  
-
-
-
-
+// http://localhost:4000

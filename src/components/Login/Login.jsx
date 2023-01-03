@@ -5,7 +5,7 @@ import Form from '../Form/Form'
 
 const Login = props => {
   
-  const { onLogin } = props;
+  const { onLogin, loginErrorMessage, cleanErrorMessage } = props;
 
   return (
     <Form
@@ -17,6 +17,8 @@ const Login = props => {
       FormLinkPath = {'./sign-up'}
       onSubmit = {onLogin}
       isRegForm = {false}
+      loginErrorMessage = {loginErrorMessage}
+      cleanErrorMessage = {cleanErrorMessage}
     />
   )
 }  
