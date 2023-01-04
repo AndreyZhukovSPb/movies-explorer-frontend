@@ -23,8 +23,9 @@ const Profile = props => {
     reset(currentUser);
   }, [currentUser]);
 
-  const onSubmit = (data) => {
-      onProfile(data.profileName, data.profileEmail);
+  const onSubmit = (data) => {  
+    onProfile(data.profileName, data.profileEmail);
+      reset(currentUser);
     }
 
   return (

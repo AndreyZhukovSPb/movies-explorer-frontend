@@ -508,6 +508,8 @@ function App() {
   function handleExitProfile() {
     setIsPreloaderOpen(true);
     localStorage.removeItem('jwt');
+    localStorage.removeItem('moviesNew');
+    setLastSearchValue('')
     setCurrentUser({});
     setIsLoggedIn(false);
     setIsTokenSet(false);
@@ -679,7 +681,5 @@ export default App;
 
 
 /* 
-- check box переключать из local storage
-- зачем setLastValue в Saved Movies
 - все из заметки
 */
