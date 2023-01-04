@@ -76,3 +76,28 @@
   color: #000000;
   text-align: center;
 }
+
+@media screen and (max-width: 767px) {
+  .infoToolTip__container {
+    width: 240px;
+    min-height: 240px;
+  }
+  .infoToolTip__sign {
+    width: 80px;
+    height: 80px;
+    margin: 30px auto 16px;
+    background-size: cover;
+  }
+  .infoToolTip__close-button {
+    width: 16px;
+    height: 16px;
+    top: -20px;
+    right: -20px;
+  }
+  .infoToolTip__text {
+    margin: 30px 24px 0 24px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+}

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import './Profile.css';
 import Header from '../Header/Header'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Profile = props => {
 
@@ -11,11 +12,16 @@ const Profile = props => {
   const {
     register,
     formState: { errors, isValid, isDirty },
-    handleSubmit
+    handleSubmit,
+    reset
   } = useForm({
     defaultValues: {profileName: currentUser.name, profileEmail: currentUser.email},
     mode: "all" // "onChange"
   });
+
+  useEffect(() => {
+    reset(currentUser);
+  }, [currentUser]);
 
   const onSubmit = (data) => {
       onProfile(data.profileName, data.profileEmail);
@@ -40,7 +46,7 @@ const Profile = props => {
                   message: "Поле Имя обязательно к заполнению"}
               })}
               type="text" 
-              placeholder={currentUser.name} 
+              // placeholder={currentUser.name} 
               className="profile__input" 
             />
             

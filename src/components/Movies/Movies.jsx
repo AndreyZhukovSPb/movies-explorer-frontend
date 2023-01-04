@@ -4,11 +4,18 @@ import './Movies.css';
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
+import { useEffect } from 'react';
 
 
 const Movies = props => {
           
-  const { cleanErrors, serverError, hideSearchGeneralError, searchGeneralError, isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, className, onNavMenuClick, onCheckBoxClick, isCheked, onScreenSize, itemsToShow, queryToAdd, previousValue } = props;
+  const { lastSearchValue, getLastData, cleanErrors, serverError, hideSearchGeneralError, searchGeneralError, isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, className, onNavMenuClick, onCheckBoxClick, isCheked, onScreenSize, itemsToShow, queryToAdd, previousValue } = props;
+
+  useEffect(()=>{
+    if (localStorage.getItem('moviesNew')) {
+      getLastData()
+    }
+  },[])
 
   return (
     <>
@@ -23,7 +30,7 @@ const Movies = props => {
           onCheckBoxClick = {onCheckBoxClick}
           isCheked = {isCheked}
           onScreenSize = {onScreenSize}
-          previousValue = {previousValue}
+          previousValue = {lastSearchValue}
           isSavedMovies = {false}
           hideSearchGeneralError= {hideSearchGeneralError}
           

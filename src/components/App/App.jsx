@@ -46,6 +46,7 @@ function App() {
   const [registerErrorMessage, setRegisterErrorMessage] = React.useState('');
   const [serverError, setServerError] = React.useState('');
   const [errorPopupMessage, setErrorPopupMessage] = React.useState('');
+  const [lastSearchValue, setLastSearchValue] = React.useState('');
 
   const [itemsToShow, setItemsToShow] = React.useState(12);
   const [queryToAdd, setQueryToAdd] = React.useState(3);
@@ -203,6 +204,7 @@ function App() {
     });
     checkIsMovieSaved(newMoviesArray, favoriteMoviesList)
     setMoviesList(newMoviesArray);
+    setLocalLastData(newMoviesArray);
     if (newMoviesArray.length === 0) {
       setSearchGeneralError('Ничего не найдено')
     } else {
@@ -219,6 +221,24 @@ function App() {
 
   function handleSetLastSavedSearcValue(value) {
     setLastSavedSearchValue(value)
+  }
+
+  function handleGetLastData() {
+    const lastData = JSON.parse( localStorage.moviesNew );
+    setMoviesList(lastData.movies)
+    setInitialMoviesArray(lastData.movies)
+    setIsShortMoviesAllowed(lastData.checkBox)
+    setLastSearchValue(lastData.lastValue)
+    // console.log(lastData)
+  }
+
+  function setLocalLastData(newMoviesList){
+    const lastNewData = JSON.parse( localStorage.moviesNew );
+    lastNewData.movies = newMoviesList;
+    lastNewData.checkBox = isShortMoviesAllowed;
+    localStorage.setItem("moviesNew", JSON.stringify(lastNewData));
+    // const newData = JSON.parse( localStorage.moviesNew );
+    // console.log(newData)
   }
 
   function searchMovies(value, data) {
@@ -275,6 +295,9 @@ function App() {
           setMoviesList(moviesArray);
           setFavoriteMoviesList(newSavedList)
         }
+        localStorage.setItem("moviesNew", JSON.stringify({movies: moviesArray, lastValue: value, checkBox: isShortMoviesAllowed}));
+        // localStorage.setItem("moviesNew", JSON.stringify({lastValue: value}));
+        // setLocalLastData(value);
         setInitialMoviesArray(initialMovies);
         if (moviesArray.length === 0) {
           setSearchGeneralError('Ничего не найдено')
@@ -357,7 +380,11 @@ function App() {
       setIsPreloaderOpen(true);
       MainApi.sendMovie(value, currentUser)
         .then((data) => {
-          setMoviesList((state) => state.map((m) => m.movieId === data.movieId ? data : m)); 
+          const newMoviesList = moviesList.map((m) => m.movieId === data.movieId ? data : m)
+          console.log(newMoviesList)
+          // setMoviesList((state) => state.map((m) => m.movieId === data.movieId ? data : m)); 
+          setMoviesList(newMoviesList)
+          setLocalLastData(newMoviesList)
           favoriteMoviesList.push(data);
         })
         .catch(err => {
@@ -395,7 +422,10 @@ function App() {
     setFavoriteMoviesList(favoriteMoviesList.filter(item => item._id !== movie._id));
     delete movie.owner;
     delete movie._id;
-    setMoviesList((state) => state.map((m) => m.movieId === movie.movieId ? movie : m)); 
+    const newMoviesList = moviesList.map((m) => m.movieId === movie.movieId ? movie : m)
+    setMoviesList(newMoviesList)
+    setLocalLastData(newMoviesList)
+    // setMoviesList((state) => state.map((m) => m.movieId === movie.movieId ? movie : m)); 
     setInitialMoviesArray((state) => state.map((m) => m.movieId === movie.movieId ? movie : m)); 
   }
 
@@ -428,7 +458,11 @@ function App() {
         setIsConfirmChangePopupOpen(true);  
       })
       .catch(err => {
-        handleOpenErrorPopup(err);
+        if (err.status === 409) {
+          handleOpenErrorPopup('пользователь с таким email уже зарегистрирован');  
+        } else {
+          handleOpenErrorPopup('');
+        }
       })
       .finally(() => {
         setIsPreloaderOpen(false);
@@ -545,6 +579,8 @@ function App() {
               searchGeneralError={searchGeneralError}
               hideSearchGeneralError={handleHideSearchGeneralError}
               serverError={serverError}
+              getLastData={handleGetLastData}
+              lastSearchValue={lastSearchValue}
             />
             <Footer/>
           </ProtectedRoute>  
@@ -640,3 +676,10 @@ function App() {
 }
 
 export default App;
+
+
+/* 
+- check box переключать из local storage
+- зачем setLastValue в Saved Movies
+- все из заметки
+*/
