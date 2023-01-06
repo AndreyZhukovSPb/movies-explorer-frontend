@@ -9,15 +9,28 @@ const Profile = props => {
 
   const { isLoggedIn, currentUser, onProfile, onNavMenuClick, onExitProfile } = props;
   
+  const [isDataNew, setIsDataNew] = React.useState(false);
   const {
     register,
     formState: { errors, isValid, isDirty },
     handleSubmit,
-    reset
+    reset,
+    watch
   } = useForm({
     defaultValues: {profileName: currentUser.name, profileEmail: currentUser.email},
     mode: "all" // "onChange"
   });
+  
+  useEffect(()=>{
+    const compare = watch((data) => {
+      if (data.profileName === data.name && data.profileEmail === data.email) {
+        setIsDataNew(false)
+      } else {
+        setIsDataNew(true)
+      }
+    })
+  },[watch])
+
 
   useEffect(() => {
     reset(currentUser);
@@ -25,8 +38,12 @@ const Profile = props => {
 
   const onSubmit = (data) => {  
     onProfile(data.profileName, data.profileEmail);
-      reset(currentUser);
-    }
+    reset(currentUser);
+  }
+
+  function test() {
+    console.log(isValid)
+  }
 
   return (
     <>
@@ -36,7 +53,7 @@ const Profile = props => {
         onNavMenuClick = {onNavMenuClick}
       />
       <section className="profile">
-        <h2 className="profile__title">Привет, {currentUser.name}</h2>
+        <h2 className="profile__title" onClick={test}>Привет, {currentUser.name}</h2>
         <form id="profileForm" name="profileForm" className="profile__form" onSubmit={handleSubmit(onSubmit)}>
           <label className="profile__inputTitle">
             Имя
@@ -70,7 +87,7 @@ const Profile = props => {
           {errors.profileName && <span className="profile__error">{errors?.profileName?.message || "Другая ошибка"}</span>}
           {errors.profileEmail && <span className="profile__error">{errors?.profileEmail?.message || "Другая ошибка"}</span>}
           <div className="profile__buttonBox">
-            <button disabled={!isValid || !isDirty} type="submit" className="profile__button">Редактировать</button>
+            <button disabled={!isValid || !isDataNew || !isDirty} type="submit" className="profile__button">Редактировать</button>
             <Link onClick={onExitProfile} to={'./'} className="profile__link">Выйти из аккаунта</Link>
           </div>
         </form>
@@ -84,6 +101,8 @@ const Profile = props => {
 export default Profile;
 
 /*
+<button disabled={!isValid || !isDirty} type="submit" className="profile__button">Редактировать</button>
+
 onChange={handleChange}
 
 // <span> {errors.profileName ? errors.profileName.message : ''} </span> 

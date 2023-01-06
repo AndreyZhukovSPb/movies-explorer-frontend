@@ -93,7 +93,8 @@ function App() {
       .then(data => {
         if(!data._id) {
           cleanTokenWork()
-          localStorage.setItem('jwt', '');
+          handleExitProfile();
+          // localStorage.setItem('jwt', '');
           return Promise.reject (data.message);
         } 
         setCurrentUser(data);
@@ -111,7 +112,9 @@ function App() {
       })
       .catch(err=>{
         cleanTokenWork()
-        localStorage.setItem('jwt', '');
+        handleExitProfile();
+        // localStorage.setItem('jwt', '');
+        setIsPreloaderOpen(false);
         handleOpenErrorPopup(err);
       });
   }, [isTokenSet])
@@ -506,7 +509,6 @@ function App() {
   }
 
   function handleExitProfile() {
-    setIsPreloaderOpen(true);
     localStorage.removeItem('jwt');
     localStorage.removeItem('moviesNew');
     setLastSearchValue('')
@@ -516,6 +518,8 @@ function App() {
     setPreviousInputValue('')
     setMoviesList([])
     setFavoriteMoviesList([])
+    setInitialFavoriteMovies([]);
+    setInitialMoviesArray([]);
     setIsPreloaderOpen(false);
   }
 
