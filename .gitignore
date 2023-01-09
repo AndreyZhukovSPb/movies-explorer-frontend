@@ -11,6 +11,10 @@
 # production
 /build
 
+.add.jsx
+
+/src/components/.FormValidator
+
 # misc
 .DS_Store
 .env.local

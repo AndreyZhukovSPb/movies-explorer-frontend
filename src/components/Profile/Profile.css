@@ -116,6 +116,17 @@
     opacity: 0.5;
 }
 
+.profile__button:disabled {
+    color:  gray;
+}
+
+.profile__error {
+    margin: 5px 0 0;
+    color: red;
+    font-weight: 500;
+    font-size: 11px;
+}
+
 @media screen and (max-width: 1279px) {
     .profile__title {
         margin: 23vh 0 96px;

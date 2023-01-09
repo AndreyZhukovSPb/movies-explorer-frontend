@@ -60,6 +60,19 @@
   cursor: pointer;
 }
 
+.searchForm__button:disabled{
+  background: gray;
+}
+
+.searchForm__error {
+  color: #EE3465;
+  margin-top: 3px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
 @media screen and (max-width: 767px) {
   .searchForm {
     height: 250px;

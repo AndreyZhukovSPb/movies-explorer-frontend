@@ -4,11 +4,19 @@ import './Movies.css';
 import Header from '../Header/Header'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
+import { useEffect } from 'react';
 
 
 const Movies = props => {
-  const { isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, movieAdderIsVisible, className, onNavMenuClick } = props;
-  
+          
+  const { lastSearchValue, getLastData, cleanErrors, serverError, hideSearchGeneralError, searchGeneralError, isLoggedIn, onSubmit, movies, onMovieLikeClick, onAddClick, className, onNavMenuClick, onCheckBoxClick, isCheked, onScreenSize, itemsToShow, queryToAdd, previousValue } = props;
+
+  useEffect(()=>{
+    if (localStorage.getItem('moviesNew')) {
+      getLastData()
+    }
+  },[])
+
   return (
     <>
       <Header
@@ -19,12 +27,25 @@ const Movies = props => {
       <main className={cn("movies", className)}>
         <SearchForm
           onSubmit = {onSubmit}
+          onCheckBoxClick = {onCheckBoxClick}
+          isCheked = {isCheked}
+          onScreenSize = {onScreenSize}
+          previousValue = {lastSearchValue}
+          isSavedMovies = {false}
+          hideSearchGeneralError= {hideSearchGeneralError}
+          
         />
         <MoviesCardList
           movies = {movies}
           onMovieLikeClick = {onMovieLikeClick}
           onAddClick = {onAddClick}
-          movieAdderIsVisible = {movieAdderIsVisible}
+          onScreenSize = {onScreenSize}
+          itemsToShow={itemsToShow}
+          queryToAdd={queryToAdd}
+          isSavedMovies = {false}
+          searchGeneralError = {searchGeneralError}
+          serverError={serverError}
+          cleanErrors={cleanErrors}
         />
       </main>
     </>
